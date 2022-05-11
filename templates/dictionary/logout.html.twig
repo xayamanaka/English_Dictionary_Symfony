@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<p>loged out</p>
+
+<div class="return_login">
+    <form method="POST" action="{{ path('login') }}">
+    <button type="submit" class="addBtn">Return to login</button>
+    </form>
+</div>
+
+<div class="return_login">
+    <form method="POST" action="{{ path('login') }}">
+    <button type="submit" class="addBtn">Return to login</button>
+    </form>
+</div>
+
+{% endblock %}

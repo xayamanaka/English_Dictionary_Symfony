@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<p>Saved new product with id {{id}}</p>
+
+<div class="return_dictionary">
+    <form method="POST" action="{{ path('dictionary') }}">
+    <button type="submit" class="addBtn">Return</button>
+    </form>
+</div>
+
+{% endblock %}

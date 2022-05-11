@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Dictionary{% endblock %}
+
+{% block body %}
+<link rel="stylesheet" href="styles/app.css">
+<h2>{{lastUsername}}'s Page</h2>
+<div class="header">
+    <h2>Dictionary</h2>
+    <form method="POST" action="{{ path('search') }}">
+    <input type="text" name="word" id="wrod" placeholder="input word..." />
+    <button type="submit" class="addBtn">Search</button>
+    </form>
+</div>
+
+<div class="search_result">
+    {{word}}
+    {{mean}}
+<ul>
+ {% for image in searched_image %}
+<li>
+<img src="{{image}}" width="150" height="100">
+</li>
+ {% endfor %}
+</ul>
+</div>
+
+<h2>Your Search History</h2>
+<ul>
+ {% for history in histories %}
+<li>
+ 
+   <span class="history-word">{{ history.word }}</span>
+   <spam class="shitory-mean">{{ history.mean}}</span>
+   {# <spam class="shitory-mean">{{product.id}}</span> #}
+   <spam class="shitory-mean">{{ history.username}}</span>
+ 
+  <a>
+    <form method="POST" action="{{path('delete_history')}}">
+    <input type="hidden" name="history_id" id="history_id" value="{{history.id}}" />
+    <button type="sybmit" class="addBtn2">delate</button>
+    </form>
+  </a>
+  <br>
+</li>
+ {% endfor %}
+</ul>
+
+<div class="header">
+<h2>Add New Word</h2>
+    <form method="POST" action="{{ path('add') }}">
+    <input type="text" name="add_word" id="add_wrod" placeholder="input word..." />
+    <input type="text" name="add_mean" id="add_mean" placeholder="input meaning..." />
+    <button type="submit" class="addBtn">Add</button>
+    </form>
+</div>
+{% endblock %}
